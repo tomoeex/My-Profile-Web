@@ -1,26 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="description" content="" />
-        <meta name="author" content="" />
-        <title>TOMOEXX</title>
-        <!-- Favicon-->
-        <link rel="icon" type="image/x-icon" href="assets/Logo.png" />
-        <!-- Bootstrap icons-->
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
-        <!-- Core theme CSS (includes Bootstrap)-->
-        <link href="css/styles.css" rel="stylesheet" />
-    </head>
-    <body class="d-flex flex-column h-100">
-        <main class="flex-shrink-0">
-            <!-- แถบเครื่องมือ -->
-            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-                <div class="container px-5">
-                    <a class="navbar-brand" href="index.html">TOMOEXX</a>
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <title>TOMOEXX - Portfolio</title>
+    <link rel="icon" type="image/x-icon" href="assets/Logo.png" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <style>
+        /* --- สไตล์ส่วนตัวและฟิลเตอร์ --- */
+        .filter-button-group { margin-bottom: 3rem; display: flex; justify-content: center; flex-wrap: wrap; gap: 10px; }
+        .filter-button-group .btn { border-radius: 50px; padding: 10px 25px; border: 1px solid #212529; background: white; transition: 0.3s; font-weight: 500; }
+        .filter-button-group .btn.active, .filter-button-group .btn:hover { background: #212529 !important; color: white !important; }
+
+        .project-card { cursor: pointer; transition: 0.3s; border: none; background: none; text-align: left; margin-bottom: 30px;}
+        .project-card:hover { transform: translateY(-10px); }
+        .img-wrapper { overflow: hidden; border-radius: 15px; height: 300px; margin-bottom: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+        .img-wrapper img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; }
+        .project-card:hover img { transform: scale(1.1); filter: brightness(0.9); }
+
+        /* --- Modal สมมาตร & Carousel --- */
+        .modal-content { border-radius: 20px; overflow: hidden; border: none; }
+        .modal-body { padding: 0; }
+        .modal-img-col { background: #f8f9fa; display: flex; align-items: center; justify-content: center; padding: 0; min-height: 450px; }
+        .modal-details-col { padding: 50px; display: flex; flex-direction: column; justify-content: center; }
+        
+        .carousel-item img { max-height: 450px; width: 100%; object-fit: contain; padding: 20px; }
+        .carousel-control-prev-icon, .carousel-control-next-icon { background-color: #212529; border-radius: 50%; padding: 15px; background-size: 50%; }
+
+        .badge { padding: 8px 16px; border-radius: 50px; margin-bottom: 15px; text-transform: uppercase; letter-spacing: 1px; font-size: 0.75rem; }
+        
+        .btn-action { background: #212529; color: white; padding: 15px; border-radius: 10px; font-weight: bold; text-decoration: none; text-align: center; transition: 0.3s; margin-top: 20px; border: none; display: block; }
+        .btn-action:hover { background: #444; color: white; }
+        .btn-secondary-custom { background: none; border: 1px solid #ddd; color: #666; padding: 10px; border-radius: 10px; margin-top: 10px; transition: 0.3s; width: 100%; }
+        .btn-secondary-custom:hover { background: #eee; }
+    </style>
+</head>
+<body class="d-flex flex-column h-100">
+    <main class="flex-shrink-0">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container px-5">
+                <a class="navbar-brand" href="index.html">TOMOEXX</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                             <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
                             <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
@@ -34,105 +56,198 @@
                                 </ul>
                             </li>
                         </ul>
-                    </div>
-                </div>
-            </nav>
-            <!-- Page Content-->
-            <section class="py-5">
-                <div class="container px-5 my-5">
-                    <div class="text-center mb-5">
-                        <h1 class="fw-bolder">My Project</h1>
-                        <p class="lead fw-normal text-muted mb-0">รวมชิ้นงานชิ้นใหญ่ๆ ที่เคยทำมาบางส่วน</p>
-                    </div>
-                    <div class="row gx-5 gy-7">
-                        <div class="col-lg-6 d-flex flex-column align-items-start">
-                            <div class="position-relative mb-5">
-                                <img class="img-fluid rounded-3 mb-4" src="assets/b1.png" alt="Design a Ramayana board game" />
-                                <a class="h3 fw-bolder text-decoration-none link-dark stretched-link" href="#!">Design a Ramayana board game</a>
-                                <p class="text-muted">บอร์ดเกมนี้ถูกสร้างตอนฉันเรียนปวช. ในวิชาออกแบบ โจรย์คือสื่อการเรียนรู้สำหรับเด็ก การออกแบบคล้ายกับเกมส์เศรษฐี แต่มีคำถามต่างๆเกี่ยวกับ รามเกียรติ์ ซึ่งเหมาะกับวิชาภาษาไทย  </p>
-                            </div>
-                        </div>
-                        <div class="col-lg-6 d-flex flex-column align-items-start">
-                            <div class="position-relative mb-5">
-                                <img class="img-fluid rounded-3 mb-4" src="assets/b2.png" alt="My school" />
-                                <a class="h3 fw-bolder text-decoration-none link-dark stretched-link" href="#!">My school</a>
-                                <p class="text-muted">My school เป็นโปรเจคจบปวช. มันคือเว็บแอพพลิเคชั่นสำหรับไว้เช็คชื่อนักเรียนและสามารถดูสถิติย้อนหลังได้แล้วยังลงบันทึกกิจกรรมล้วงหน้าได้อีกด้วย เป็นชิ้นงานที่ฉันภูมิใจ</p>
-                            </div>
-                        </div>
-                        <div class="col-lg-6 d-flex flex-column align-items-start">
-                            <div class="position-relative mb-5">
-                                <img class="img-fluid rounded-3 mb-4" src="assets/b5.png" alt="Design language learning apps" />
-                                <a class="h3 fw-bolder text-decoration-none link-dark stretched-link" href="#!">Design language learning apps</a>
-                                <p class="text-muted">เป็นชิ้นงานของวิชา Using Digital Tools for English Learning แอพนี้เป็นแค่การออกแบบ UXUI ซึ่งฟีเจอร์ต่างๆ คล้ายกับ Duolingo แต่เพิ่มฟีเจอร์อื่นๆ ที่เป็นตัวของเราเอง</p>
-                            </div>
-                        </div>
-                        <div class="col-lg-6 d-flex flex-column align-items-start">
-                            <div class="position-relative mb-5">
-                                <img class="img-fluid rounded-3 mb-4" src="assets/b6.png" alt="ER Diagram" />
-                                <a class="h3 fw-bolder text-decoration-none link-dark stretched-link" href="#!">ER Diagram</a>
-                                <p class="text-muted">ER Diagram ชิ้นนี้เป็นงานออกแบบระบบของตู้เต่าบินโดยรวม ซึ่งแสดงถึงความสัมพันธ์ต่างๆในระบบของตุู้เต่าบิน</p>
-                            </div>
-                        </div>
-                        <div class="col-lg-6 d-flex flex-column align-items-start">
-                            <div class="position-relative mb-5">
-                                <img class="img-fluid rounded-3 mb-4" src="assets/b7.png" alt="Dinosaur Motocross" />
-                                <a class="h3 fw-bolder text-decoration-none link-dark stretched-link" href="#!">Dinosaur Motocross</a>
-                                <p class="text-muted">Dinosaur Motocross เป็นงานสร้างเกมด้วยภาษา Python ครั้งแรก ทำตั้งแต่วาดรูป ออกแบบด่าน สร้างตัวละคร เกมนี้มีจุดเด่นตรงที่ ผู้เล่นสามารถสร้างด่านเล่นเองได้แบบไม่มีจำกัด สร้างคล้ายเกมมาริโอ้สมัยก่อน</p>
-                            </div>
-                        </div>
-                        <div class="col-lg-6 d-flex flex-column align-items-start">
-                            <div class="position-relative mb-5">
-                                <img class="img-fluid rounded-3 mb-4" src="assets/b8.png" alt="Group portfolio website" />
-                                <a class="h3 fw-bolder text-decoration-none link-dark stretched-link" href="#!">Group portfolio website</a>
-                                <p class="text-muted">งานชิ้นนี้เป็นเว็บโชว์ผลงานทั้งกลุ่ม มีการดีไซน์ แบบมินิมอล และโชว์ผลงานของกลุ่มเราที่สร้างกันเองตลอดการเรียนตอนปี 1</p>
-                            </div>
-                        </div>
-                        <div class="col-lg-6 d-flex flex-column align-items-start">
-                            <div class="position-relative mb-5">
-                                <img class="img-fluid rounded-3 mb-4" src="assets/b11.jpeg" alt="System management website" />
-                                <a class="h3 fw-bolder text-decoration-none link-dark stretched-link" href="#!">System management website</a>
-                                <p class="text-muted">งานชิ้นนี้ถูกสร้างตอนเรียนดาต้า ฝึกใช้ฐานข้อมูล มีฟีเจอร์ เพิ่ม ลบ เพิ่มย้อนหลัง ค้นหา สิ่งของได้ โดยผ่านเว็บเท่านั้น</p>
-                            </div>
-                        </div>
-                        <div class="col-lg-6 d-flex flex-column align-items-start">
-                            <div class="position-relative mb-5">
-                                <img class="img-fluid rounded-3 mb-4" src="assets/b9.png" alt="Tracking camera" />
-                                <a class="h3 fw-bolder text-decoration-none link-dark stretched-link" href="#!">Tracking camera</a>
-                                <p class="text-muted">งานชิ้นนี้ถูกสร้างขึ้น ในวิชาโปรแกรมมิ่งตอนปี 1 ตรวจการเคลื่อนไหวผ่านมือเราและส่ง SMS เข้าไลน์ และจะตรวจจับจนกว่าจะถูกสั่งปิดการทำงาน</p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    
-                </div>
-            </section>
-            <section class="py-5 bg-light">
-                <div class="container px-5 my-5">
-                    <h2 class="display-4 fw-bolder mb-4">Follow the next piece</h2>
-                    <a class="btn btn-lg btn-primary" href="index.html">Please follow</a>
-                </div>
-            </section>
-        </main>
-        <!-- Footer-->
-        <footer class="bg-dark py-4 mt-auto">
-            <div class="container px-5">
-                <div class="row align-items-center justify-content-between flex-column flex-sm-row">
-                    <div class="col-auto"><div class="small m-0 text-white">TOMOEXX &copy; Your Website 2025</div></div>
-                    <div class="col-auto">
-                        <a class="link-light small" href="#!">Facebook</a>
-                        <span class="text-white mx-1">&middot;</span>
-                        <a class="link-light small" href="#!">Instagram</a>
-                        <span class="text-white mx-1">&middot;</span>
-                        <a class="link-light small" href="#!">X</a>
-                        <span class="text-white mx-1">&middot;</span>
-                        <a class="link-light small" href="#!">GitHub</a>
-                    </div>
                 </div>
             </div>
-        </footer>
-        <!-- Bootstrap core JS-->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-        <!-- Core theme JS-->
-        <script src="js/scripts.js"></script>
-    </body>
+        </nav>
+
+        <section class="py-5">
+            <div class="container px-5 my-5">
+                <div class="text-center mb-5">
+                    <h1 class="fw-bolder text-dark display-4">Project</h1>
+                    <p class="lead fw-normal text-muted mb-0">รวบรวมผลงานและโครงงานทั้งหมด ตั้งแต่เริ่มเข้าสายงานเทคโนโลยีสารสนเทศ</p>
+                </div>
+
+                <div class="filter-button-group">
+                    <button class="btn active" data-filter="*">ทั้งหมด</button>
+                    <button class="btn" data-filter=".role-developer">Web Development</button>
+                    <button class="btn" data-filter=".role-app-developer">App Development</button>
+                    <button class="btn" data-filter=".role-uxui">UX/UI Design</button>
+                    <button class="btn" data-filter=".role-data">Data & Research</button>
+                    <button class="btn" data-filter=".role-iot">IoT & Systems</button>
+                    <button class="btn" data-filter=".role-other">อื่นๆ</button>
+                </div>
+
+                <div class="row project-grid">
+                    <div class="col-lg-6 grid-item role-other mb-5"><div class="project-card" data-bs-toggle="modal" data-bs-target="#modal1">
+                        <div class="img-wrapper"><img src="assets/b1.png" alt="Ramayana" /></div>
+                    <h3 class="fw-bold">Ramayana Board Game</h3><p class="text-muted">สื่อการเรียนรู้ในรูปแบบบอร์ดเกม</p></div></div>
+                    <div class="col-lg-6 grid-item role-developer mb-5"><div class="project-card" data-bs-toggle="modal" data-bs-target="#modal2">
+                        <div class="img-wrapper"><img src="assets/b2.png" alt="My School" /></div>
+                    <h3 class="fw-bold">My School System</h3><p class="text-muted">เว็บแอปพลิเคชันสำหรับจัดการข้อมูลนักเรียน</p></div></div>
+                    <div class="col-lg-6 grid-item role-other mb-5"><div class="project-card" data-bs-toggle="modal" data-bs-target="#modal5">
+                        <div class="img-wrapper"><img src="assets/b7.png" alt="Dino" /></div>
+                    <h3 class="fw-bold">Dinosaur Motocross Game</h3><p class="text-muted">พัฒนาเกม 2D ด้วยภาษา Python</p></div></div>
+                    <div class="col-lg-6 grid-item role-developer mb-5"><div class="project-card" data-bs-toggle="modal" data-bs-target="#modal6">
+                        <div class="img-wrapper"><img src="assets/b8.png" alt="Group Port" /></div>
+                    <h3 class="fw-bold">Group Portfolio Website</h3><p class="text-muted">เว็บไซต์รวบรวมผลงานแบบมินิมอล</p></div></div>
+                    <div class="col-lg-6 grid-item role-developer mb-5"><div class="project-card" data-bs-toggle="modal" data-bs-target="#modal7">
+                        <div class="img-wrapper"><img src="assets/b11.jpeg" alt="Management" /></div>
+                    <h3 class="fw-bold">Inventory Management System</h3><p class="text-muted">ระบบจัดการคลังสินค้าบนเว็บไซต์</p></div></div>
+                    <div class="col-lg-6 grid-item role-iot mb-5"><div class="project-card" data-bs-toggle="modal" data-bs-target="#modal8">
+                        <div class="img-wrapper"><img src="assets/b9.png" alt="Camera" /></div>
+                    <h3 class="fw-bold">Motion Tracking Camera</h3><p class="text-muted">ระบบตรวจจับการเคลื่อนไหวด้วยภาพ</p></div></div>
+
+                    <div class="col-lg-6 grid-item role-other mb-5"><div class="project-card" data-bs-toggle="modal" data-bs-target="#modal9">
+                        <div class="img-wrapper"><img src="assets/pj9.png" alt="TaoBin System" /></div>
+                    <h3 class="fw-bold">Tao Bin System Architecture</h3><p class="text-muted">แผนผังระบบตู้จำหน่ายเครื่องดื่มอัตโนมัติ</p></div></div>
+                    <div class="col-lg-6 grid-item role-uxui mb-5"><div class="project-card" data-bs-toggle="modal" data-bs-target="#modal10">
+                        <div class="img-wrapper"><img src="assets/pj10.png" alt="Uni Reg Web" /></div>
+                    <h3 class="fw-bold">University Registration Web Design</h3><p class="text-muted">การออกแบบเว็บลงทะเบียนเรียนมหาวิทยาลัย</p></div></div>
+                    <div class="col-lg-6 grid-item role-uxui mb-5"><div class="project-card" data-bs-toggle="modal" data-bs-target="#modal11">
+                        <div class="img-wrapper"><img src="assets/pj11.png" alt="Edu Social" /></div>
+                    <h3 class="fw-bold">Educational Social App Design</h3><p class="text-muted">การออกแบบแอปพลิเคชันสังคมเพื่อการศึกษา</p></div></div>
+                    <div class="col-lg-6 grid-item role-uxui mb-5"><div class="project-card" data-bs-toggle="modal" data-bs-target="#modal12">
+                        <div class="img-wrapper"><img src="assets/pj12.png" alt="Eng App" /></div>
+                    <h3 class="fw-bold">English Learning App Design</h3><p class="text-muted">การออกแบบแอปพลิเคชันเรียนภาษาอังกฤษ</p></div></div>
+                    <div class="col-lg-6 grid-item role-developer mb-5"><div class="project-card" data-bs-toggle="modal" data-bs-target="#modal13">
+                        <div class="img-wrapper"><img src="assets/pj13.png" alt="Ecom Web" /></div>
+                    <h3 class="fw-bold">Clothing E-Commerce Website</h3><p class="text-muted">ระบบร้านค้าเสื้อผ้าออนไลน์แบบ Full-Stack</p></div></div>
+                    <div class="col-lg-6 grid-item role-app-developer mb-5"><div class="project-card" data-bs-toggle="modal" data-bs-target="#modal14">
+                        <div class="img-wrapper"><img src="assets/pj14.png" alt="Ecom App" /></div>
+                    <h3 class="fw-bold">Clothing E-Commerce App</h3><p class="text-muted">แอปพลิเคชันร้านค้าเสื้อผ้าออนไลน์</p></div></div>
+                    <div class="col-lg-6 grid-item role-developer mb-5"><div class="project-card" data-bs-toggle="modal" data-bs-target="#modal15">
+                        <div class="img-wrapper"><img src="assets/pj15.png" alt="Cat Shop" /></div>
+                    <h3 class="fw-bold">Pet Shop E-Commerce System</h3><p class="text-muted">ระบบร้านจำหน่ายสินค้าสัตว์เลี้ยงออนไลน์</p></div></div>
+                    <div class="col-lg-6 grid-item role-other mb-5"><div class="project-card" data-bs-toggle="modal" data-bs-target="#modal16">
+                        <div class="img-wrapper"><img src="assets/pj16.png" alt="Peak Game" /></div>
+                    <h3 class="fw-bold">Peak Game Object Detection</h3><p class="text-muted">ระบบตรวจจับวัตถุอัตโนมัติภายในเกม</p></div></div>
+                    <div class="col-lg-6 grid-item role-other mb-5"><div class="project-card" data-bs-toggle="modal" data-bs-target="#modal17">
+                        <div class="img-wrapper"><img src="assets/pj17.png" alt="n8n Line" /></div>
+                    <h3 class="fw-bold">LINE Personal Assistant via n8n</h3><p class="text-muted">ระบบผู้ช่วยส่วนตัวอัตโนมัติบนแอปพลิเคชัน LINE</p></div></div>
+                    <div class="col-lg-6 grid-item role-data mb-5"><div class="project-card" data-bs-toggle="modal" data-bs-target="#modal18">
+                        <div class="img-wrapper"><img src="assets/pj18.png" alt="Big Data" /></div>
+                    <h3 class="fw-bold">Big Data Model Testing</h3><p class="text-muted">การทดสอบและประมวลผลข้อมูลขนาดใหญ่</p></div></div>
+                    <div class="col-lg-6 grid-item role-iot mb-5"><div class="project-card" data-bs-toggle="modal" data-bs-target="#modal19">
+                        <div class="img-wrapper"><img src="assets/pj19.png" alt="IoT Dam" /></div>
+                    <h3 class="fw-bold">Smart Dam Monitoring System</h3><p class="text-muted">ระบบ IoT บริหารจัดการเขื่อนและระดับน้ำ</p></div></div>
+                    <div class="col-lg-6 grid-item role-data mb-5"><div class="project-card" data-bs-toggle="modal" data-bs-target="#modal20">
+                        <div class="img-wrapper"><img src="assets/pj20.png" alt="RDBMS" /></div>
+                    <h3 class="fw-bold">JOIN vs SubQuery Performance</h3><p class="text-muted">งานวิจัยประสิทธิภาพการประมวลผลฐานข้อมูล RDBMS</p></div></div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div class="modal fade" id="modal1" tabindex="-1" aria-hidden="true"><div class="modal-dialog modal-xl modal-dialog-centered"><div class="modal-content"><div class="modal-body"><div class="row g-0">
+        <div class="col-lg-6 modal-img-col"><div id="c1" class="carousel slide w-100" data-bs-ride="carousel"><div class="carousel-inner"><div class="carousel-item active"><img src="assets/b1.png"></div></div></div></div>
+        <div class="col-lg-6 modal-details-col"><span class="badge bg-dark">Game Design</span><h2 class="fw-bolder">Ramayana Board Game</h2><p class="text-muted">ออกแบบสื่อการเรียนรู้รูปแบบบอร์ดเกมสำหรับเด็ก โดยประยุกต์กลไกเกมกระดานเพื่อสอดแทรกความรู้วรรณคดีเรื่องรามเกียรติ์</p><p class="small"><strong>Tools:</strong> Adobe Illustrator, Canva</p><button class="btn btn-secondary-custom" data-bs-dismiss="modal">ปิดหน้าต่าง</button></div>
+    </div></div></div></div></div>
+
+    <div class="modal fade" id="modal2" tabindex="-1" aria-hidden="true"><div class="modal-dialog modal-xl modal-dialog-centered"><div class="modal-content"><div class="modal-body"><div class="row g-0">
+        <div class="col-lg-6 modal-img-col"><div id="c2" class="carousel slide w-100" data-bs-ride="carousel"><div class="carousel-inner"><div class="carousel-item active"><img src="assets/b2.png"></div><div class="carousel-item"><img src="assets/b2_2.png"></div></div><button class="carousel-control-prev" data-bs-target="#c2" data-bs-slide="prev"><span class="carousel-control-prev-icon"></span></button><button class="carousel-control-next" data-bs-target="#c2" data-bs-slide="next"><span class="carousel-control-next-icon"></span></button></div></div>
+        <div class="col-lg-6 modal-details-col"><span class="badge bg-dark">Web Development</span><h2 class="fw-bolder">My School System</h2><p class="text-muted">พัฒนาระบบเว็บแอปพลิเคชันสำหรับเช็คชื่อนักเรียน ดูสถิติการเข้าเรียนย้อนหลัง และบันทึกกิจกรรมต่างๆ ภายในโรงเรียน</p><p class="small"><strong>Tools:</strong> HTML, CSS, PHP, MySQL</p><button class="btn btn-secondary-custom" data-bs-dismiss="modal">ปิดหน้าต่าง</button></div>
+    </div></div></div></div></div>
+
+
+    <div class="modal fade" id="modal5" tabindex="-1" aria-hidden="true"><div class="modal-dialog modal-xl modal-dialog-centered"><div class="modal-content"><div class="modal-body"><div class="row g-0">
+        <div class="col-lg-6 modal-img-col"><div id="c5" class="carousel slide w-100" data-bs-ride="carousel"><div class="carousel-inner"><div class="carousel-item active"><img src="assets/b7.png"></div></div></div></div>
+        <div class="col-lg-6 modal-details-col"><span class="badge bg-dark">Game Development</span><h2 class="fw-bolder">Dinosaur Motocross</h2><p class="text-muted">พัฒนาเกมแนวอาร์เคดด้วยภาษา Python โดยมีจุดเด่นให้ผู้เล่นสามารถสร้างและปรับแต่งด่าน รวมถึงตัวละครภายในเกมได้ด้วยตนเอง</p><p class="small"><strong>Tools:</strong> Python, Pygame</p><button class="btn btn-secondary-custom" data-bs-dismiss="modal">ปิดหน้าต่าง</button></div>
+    </div></div></div></div></div>
+
+    <div class="modal fade" id="modal6" tabindex="-1" aria-hidden="true"><div class="modal-dialog modal-xl modal-dialog-centered"><div class="modal-content"><div class="modal-body"><div class="row g-0">
+        <div class="col-lg-6 modal-img-col"><div id="c6" class="carousel slide w-100" data-bs-ride="carousel"><div class="carousel-inner"><div class="carousel-item active"><img src="assets/b8.png"></div></div></div></div>
+        <div class="col-lg-6 modal-details-col"><span class="badge bg-dark">Web Development</span><h2 class="fw-bolder">Group Portfolio</h2><p class="text-muted">พัฒนาเว็บไซต์เพื่อรวบรวมและนำเสนอผลงานของกลุ่มในรูปแบบที่เรียบง่าย สบายตา และเข้าถึงข้อมูลได้รวดเร็ว</p><p class="small"><strong>Tools:</strong> HTML, CSS, Bootstrap</p><button class="btn btn-secondary-custom" data-bs-dismiss="modal">ปิดหน้าต่าง</button></div>
+    </div></div></div></div></div>
+
+    <div class="modal fade" id="modal7" tabindex="-1" aria-hidden="true"><div class="modal-dialog modal-xl modal-dialog-centered"><div class="modal-content"><div class="modal-body"><div class="row g-0">
+        <div class="col-lg-6 modal-img-col"><div id="c7" class="carousel slide w-100" data-bs-ride="carousel"><div class="carousel-inner"><div class="carousel-item active"><img src="assets/b11.jpeg"></div></div></div></div>
+        <div class="col-lg-6 modal-details-col"><span class="badge bg-dark">Web Development</span><h2 class="fw-bolder">Inventory Management</h2><p class="text-muted">พัฒนาระบบเว็บแอปพลิเคชันสำหรับจัดการคลังสินค้า รองรับการเพิ่ม ลบ แก้ไข และค้นหาข้อมูลสิ่งของแบบเรียลไทม์</p><p class="small"><strong>Tools:</strong> MySQL, PHP, HTML</p><button class="btn btn-secondary-custom" data-bs-dismiss="modal">ปิดหน้าต่าง</button></div>
+    </div></div></div></div></div>
+
+    <div class="modal fade" id="modal8" tabindex="-1" aria-hidden="true"><div class="modal-dialog modal-xl modal-dialog-centered"><div class="modal-content"><div class="modal-body"><div class="row g-0">
+        <div class="col-lg-6 modal-img-col"><div id="c8" class="carousel slide w-100" data-bs-ride="carousel"><div class="carousel-inner"><div class="carousel-item active"><img src="assets/b9.png"></div></div></div></div>
+        <div class="col-lg-6 modal-details-col"><span class="badge bg-dark">IoT & Systems</span><h2 class="fw-bolder">Motion Tracking Camera</h2><p class="text-muted">พัฒนาระบบประมวลผลภาพ (Image Processing) เพื่อตรวจจับการเคลื่อนไหว และส่งการแจ้งเตือนอัตโนมัติผ่านทาง LINE API</p><p class="small"><strong>Tools:</strong> Python, OpenCV</p><button class="btn btn-secondary-custom" data-bs-dismiss="modal">ปิดหน้าต่าง</button></div>
+    </div></div></div></div></div>
+
+
+
+    <div class="modal fade" id="modal9" tabindex="-1" aria-hidden="true"><div class="modal-dialog modal-xl modal-dialog-centered"><div class="modal-content"><div class="modal-body"><div class="row g-0">
+        <div class="col-lg-6 modal-img-col"><div id="c9" class="carousel slide w-100" data-bs-ride="carousel"><div class="carousel-inner"><div class="carousel-item active"><img src="assets/pj9.png"> </div><div class="carousel-item"><img src="assets/pj9_1.png"></div></div><button class="carousel-control-prev" data-bs-target="#c9" data-bs-slide="prev"><span class="carousel-control-prev-icon"></span></button><button class="carousel-control-next" data-bs-target="#c9" data-bs-slide="next"><span class="carousel-control-next-icon"></span></button></div></div>
+        <div class="col-lg-6 modal-details-col"><span class="badge bg-dark">System Architecture</span><h2 class="fw-bolder">Tao Bin Architecture</h2><p class="text-muted">วิเคราะห์และจัดทำแผนผังโครงสร้างสถาปัตยกรรมระบบ (System Architecture) เพื่อแสดงการทำงานโดยรวมของตู้จำหน่ายเครื่องดื่มอัตโนมัติ</p><p class="small"><strong>Tools:</strong> Microsoft Visio, Draw.io</p><a href="assets/pj9_1.pdf" target="_blank" class="btn-action">ดูแผนผังการวิเคราะห์ระบบ</a><button class="btn btn-secondary-custom" data-bs-dismiss="modal">ปิดหน้าต่าง</button></div>
+    </div></div></div></div></div>
+
+    <div class="modal fade" id="modal10" tabindex="-1" aria-hidden="true"><div class="modal-dialog modal-xl modal-dialog-centered"><div class="modal-content"><div class="modal-body"><div class="row g-0">
+        <div class="col-lg-6 modal-img-col"><div id="c10" class="carousel slide w-100" data-bs-ride="carousel"><div class="carousel-inner"><div class="carousel-item active"><img src="assets/pj10.png"></div><div class="carousel-item"><img src="assets/pj10_1.png"></div></div><button class="carousel-control-prev" data-bs-target="#c10" data-bs-slide="prev"><span class="carousel-control-prev-icon"></span></button><button class="carousel-control-next" data-bs-target="#c10" data-bs-slide="next"><span class="carousel-control-next-icon"></span></button></div></div>
+        <div class="col-lg-6 modal-details-col"><span class="badge bg-dark">UX/UI Design</span><h2 class="fw-bolder">University Registration Design</h2><p class="text-muted">ออกแบบ UX/UI ระบบลงทะเบียนเรียนของมหาวิทยาลัย โดยเน้นแก้ไขปัญหาความซับซ้อน เพื่อให้ผู้ใช้งานสามารถทำรายการได้อย่างสะดวกและรวดเร็ว</p><p class="small"><strong>Tools:</strong> Figma</p><a href="https://www.figma.com/proto/cDQ8sEOnGX9JNqAIilm8XX/Register-for-study?node-id=1-88&t=fxi2GtYTqqmchkQL-1" class="btn-action">ดูตัวอย่าง Prototype</a><button class="btn btn-secondary-custom" data-bs-dismiss="modal">ปิดหน้าต่าง</button></div>
+    </div></div></div></div></div>
+
+    <div class="modal fade" id="modal11" tabindex="-1" aria-hidden="true"><div class="modal-dialog modal-xl modal-dialog-centered"><div class="modal-content"><div class="modal-body"><div class="row g-0">
+        <div class="col-lg-6 modal-img-col"><div id="c11" class="carousel slide w-100" data-bs-ride="carousel"><div class="carousel-inner"><div class="carousel-item active"><img src="assets/pj11.png"></div><div class="carousel-item"><img src="assets/pj11_1.png"></div></div><button class="carousel-control-prev" data-bs-target="#c11" data-bs-slide="prev"><span class="carousel-control-prev-icon"></span></button><button class="carousel-control-next" data-bs-target="#c11" data-bs-slide="next"><span class="carousel-control-next-icon"></span></button></div></div>
+        <div class="col-lg-6 modal-details-col"><span class="badge bg-dark">UX/UI Design</span><h2 class="fw-bolder">Educational Social App</h2><p class="text-muted">ออกแบบแอปพลิเคชันโซเชียลมีเดียที่มุ่งเน้นการสร้างชุมชนแห่งการเรียนรู้ แลกเปลี่ยนข้อมูล และเชื่อมโยงผู้ใช้งานกับติวเตอร์</p><p class="small"><strong>Tools:</strong> Figma</p><a href="https://www.figma.com/design/ffjeBKWBuze6fayxXMoOY0/Prave-your-way?node-id=0-1&m=dev&t=QjOjdlomKJGdyluF-1" class="btn-action">ดูตัวอย่าง Prototype</a><button class="btn btn-secondary-custom" data-bs-dismiss="modal">ปิดหน้าต่าง</button></div>
+    </div></div></div></div></div>
+
+    <div class="modal fade" id="modal12" tabindex="-1" aria-hidden="true"><div class="modal-dialog modal-xl modal-dialog-centered"><div class="modal-content"><div class="modal-body"><div class="row g-0">
+        <div class="col-lg-6 modal-img-col"><div id="c12" class="carousel slide w-100" data-bs-ride="carousel"><div class="carousel-inner"><div class="carousel-item active"><img src="assets/pj12.png"></div><div class="carousel-item"><img src="assets/pj12_1.png"></div></div><button class="carousel-control-prev" data-bs-target="#c12" data-bs-slide="prev"><span class="carousel-control-prev-icon"></span></button><button class="carousel-control-next" data-bs-target="#c12" data-bs-slide="next"><span class="carousel-control-next-icon"></span></button></div></div>
+        <div class="col-lg-6 modal-details-col"><span class="badge bg-dark">UX/UI Design</span><h2 class="fw-bolder">English Learning App</h2><p class="text-muted">ออกแบบแอปพลิเคชันเรียนภาษาอังกฤษบนสมาร์ทโฟน โดยประยุกต์ใช้แนวคิด Gamification เพื่อกระตุ้นให้ผู้เรียนรู้สึกสนุกและมีส่วนร่วม</p><p class="small"><strong>Tools:</strong> Figma</p><a href="https://www.figma.com/proto/HmCmrrlUyqYWS3VKZFq3ys/Infinity?node-id=0-1&t=dRH9TDhUEby8qDaO-1" class="btn-action">ดูตัวอย่าง Prototype</a><button class="btn btn-secondary-custom" data-bs-dismiss="modal">ปิดหน้าต่าง</button></div>
+    </div></div></div></div></div>
+
+    <div class="modal fade" id="modal13" tabindex="-1" aria-hidden="true"><div class="modal-dialog modal-xl modal-dialog-centered"><div class="modal-content"><div class="modal-body"><div class="row g-0">
+        <div class="col-lg-6 modal-img-col"><div id="c13" class="carousel slide w-100" data-bs-ride="carousel"><div class="carousel-inner"><div class="carousel-item active"><img src="assets/pj13.png"></div><div class="carousel-item"><img src="assets/pj13_1.png"></div><div class="carousel-item"><img src="assets/pj13_2.png"></div><div class="carousel-item"><img src="assets/pj13_3.png"></div><div class="carousel-item"><img src="assets/pj13_4.png"></div></div><button class="carousel-control-prev" data-bs-target="#c13" data-bs-slide="prev"><span class="carousel-control-prev-icon"></span></button><button class="carousel-control-next" data-bs-target="#c13" data-bs-slide="next"><span class="carousel-control-next-icon"></span></button></div></div>
+        <div class="col-lg-6 modal-details-col"><span class="badge bg-dark">Web Development</span><h2 class="fw-bolder">Clothing E-Commerce Web</h2><p class="text-muted">พัฒนาเว็บไซต์อีคอมเมิร์ซเต็มรูปแบบ ประกอบด้วยระบบหน้าร้าน (ตะกร้าสินค้า, ชำระเงิน) และระบบหลังบ้านสำหรับจัดการคำสั่งซื้อและสินค้าคงคลัง</p><p class="small"><strong>Tools:</strong> React, Node.js, MySQL</p><a href="https://github.com/tomoeex/shopEC" class="btn-action">เข้าชม Github</a><button class="btn btn-secondary-custom" data-bs-dismiss="modal">ปิดหน้าต่าง</button></div>
+    </div></div></div></div></div>
+
+    <div class="modal fade" id="modal14" tabindex="-1" aria-hidden="true"><div class="modal-dialog modal-xl modal-dialog-centered"><div class="modal-content"><div class="modal-body"><div class="row g-0">
+        <div class="col-lg-6 modal-img-col"><div id="c14" class="carousel slide w-100" data-bs-ride="carousel"><div class="carousel-inner"><div class="carousel-item active"><img src="assets/pj14.png"></div><div class="carousel-item"><img src="assets/pj14_1.png"></div></div><button class="carousel-control-prev" data-bs-target="#c14" data-bs-slide="prev"><span class="carousel-control-prev-icon"></span></button><button class="carousel-control-next" data-bs-target="#c14" data-bs-slide="next"><span class="carousel-control-next-icon"></span></button></div></div>
+        <div class="col-lg-6 modal-details-col"><span class="badge bg-dark">App Development</span><h2 class="fw-bolder">Clothing E-Commerce App</h2><p class="text-muted">พัฒนาแอปพลิเคชันอีคอมเมิร์ซบนสมาร์ทโฟน รองรับระบบสมาชิก การชำระเงิน และมีหน้าผู้ดูแลระบบสำหรับจัดการข้อมูลต่างๆ</p><p class="small"><strong>Tools:</strong> Flutter, Firebase</p><a href="https://github.com/tomoeex/ecommerce_app_flutter_firebase-main" class="btn-action">เข้าชม Github</a><button class="btn btn-secondary-custom" data-bs-dismiss="modal">ปิดหน้าต่าง</button></div>
+    </div></div></div></div></div>
+
+    <div class="modal fade" id="modal15" tabindex="-1" aria-hidden="true"><div class="modal-dialog modal-xl modal-dialog-centered"><div class="modal-content"><div class="modal-body"><div class="row g-0">
+        <div class="col-lg-6 modal-img-col"><div id="c15" class="carousel slide w-100" data-bs-ride="carousel"><div class="carousel-inner"><div class="carousel-item active"><img src="assets/pj15.png"></div><div class="carousel-item"><img src="assets/pj15_alt.png"></div></div><button class="carousel-control-prev" data-bs-target="#c15" data-bs-slide="prev"><span class="carousel-control-prev-icon"></span></button><button class="carousel-control-next" data-bs-target="#c15" data-bs-slide="next"><span class="carousel-control-next-icon"></span></button></div></div>
+        <div class="col-lg-6 modal-details-col"><span class="badge bg-dark">Web Development</span><h2 class="fw-bolder">Pet Shop E-Commerce</h2><p class="text-muted">พัฒนาเว็บไซต์อีคอมเมิร์ซสำหรับธุรกิจจำหน่ายสินค้าสัตว์เลี้ยง พร้อมระบบแคตตาล็อกสินค้าและระบบจัดการสินค้าคงคลัง</p><p class="small"><strong>Tools:</strong> PHP, Tailwind CSS, MySQL</p><a href="https://github.com/tomoeex/My-Profile-Web" class="btn-action">เข้าชม Github</a><button class="btn btn-secondary-custom" data-bs-dismiss="modal">ปิดหน้าต่าง</button></div>
+    </div></div></div></div></div>
+
+    <div class="modal fade" id="modal16" tabindex="-1" aria-hidden="true"><div class="modal-dialog modal-xl modal-dialog-centered"><div class="modal-content"><div class="modal-body"><div class="row g-0">
+        <div class="col-lg-6 modal-img-col"><div id="c16" class="carousel slide w-100" data-bs-ride="carousel"><div class="carousel-inner"><div class="carousel-item active"><img src="assets/pj16.png"></div><div class="carousel-item"><img src="assets/pj16_alt.png"></div></div><button class="carousel-control-prev" data-bs-target="#c16" data-bs-slide="prev"><span class="carousel-control-prev-icon"></span></button><button class="carousel-control-next" data-bs-target="#c16" data-bs-slide="next"><span class="carousel-control-next-icon"></span></button></div></div>
+        <div class="col-lg-6 modal-details-col"><span class="badge bg-dark">Development & Scripting</span><h2 class="fw-bolder">Peak Game Object Detection</h2><p class="text-muted">ประยุกต์ใช้เทคโนโลยีการรู้จำภาพ (Image Detection) เพื่อสร้างสคริปต์อัตโนมัติสำหรับทำงานเฉพาะเจาะจงภายในเกม Peak</p><p class="small"><strong>Tools:</strong> Python, PyAutoGUI, OpenCV</p><a href="#" class="btn-action">ดูรายละเอียดเนื้อหาเกม Peak</a><button class="btn btn-secondary-custom" data-bs-dismiss="modal">ปิดหน้าต่าง</button></div>
+    </div></div></div></div></div>
+
+    <div class="modal fade" id="modal17" tabindex="-1" aria-hidden="true"><div class="modal-dialog modal-xl modal-dialog-centered"><div class="modal-content"><div class="modal-body"><div class="row g-0">
+        <div class="col-lg-6 modal-img-col"><div id="c17" class="carousel slide w-100" data-bs-ride="carousel"><div class="carousel-inner"><div class="carousel-item active"><img src="assets/pj17.png"></div><div class="carousel-item"><img src="assets/pj17_alt.png"></div></div><button class="carousel-control-prev" data-bs-target="#c17" data-bs-slide="prev"><span class="carousel-control-prev-icon"></span></button><button class="carousel-control-next" data-bs-target="#c17" data-bs-slide="next"><span class="carousel-control-next-icon"></span></button></div></div>
+        <div class="col-lg-6 modal-details-col"><span class="badge bg-dark">IoT & Systems</span><h2 class="fw-bolder">LINE Personal Assistant</h2><p class="text-muted">พัฒนาระบบอัตโนมัติด้วย n8n Workflow โดยเชื่อมต่อ API ต่างๆ เข้ากับแอปพลิเคชัน LINE เพื่อรับคำสั่งและส่งการแจ้งเตือนแบบเรียลไทม์</p><p class="small"><strong>Tools:</strong> n8n, LINE Messaging API, Webhooks</p><a href="#" class="btn-action">ดูรายละเอียดเนื้อหา Workflow</a><button class="btn btn-secondary-custom" data-bs-dismiss="modal">ปิดหน้าต่าง</button></div>
+    </div></div></div></div></div>
+
+    <div class="modal fade" id="modal18" tabindex="-1" aria-hidden="true"><div class="modal-dialog modal-xl modal-dialog-centered"><div class="modal-content"><div class="modal-body"><div class="row g-0">
+        <div class="col-lg-6 modal-img-col"><div id="c18" class="carousel slide w-100" data-bs-ride="carousel"><div class="carousel-inner"><div class="carousel-item active"><img src="assets/pj18.png"></div><div class="carousel-item"><img src="assets/pj18_alt.png"></div></div><button class="carousel-control-prev" data-bs-target="#c18" data-bs-slide="prev"><span class="carousel-control-prev-icon"></span></button><button class="carousel-control-next" data-bs-target="#c18" data-bs-slide="next"><span class="carousel-control-next-icon"></span></button></div></div>
+        <div class="col-lg-6 modal-details-col"><span class="badge bg-dark">Data & Research</span><h2 class="fw-bolder">Big Data Model Testing</h2><p class="text-muted">ศึกษาและทดสอบประสิทธิภาพการประมวลผลข้อมูลขนาดใหญ่ (Big Data) ด้วยเทคโนโลยี Hadoop และ MapReduce บน Cloudera Virtual Machine</p><p class="small"><strong>Tools:</strong> Hadoop, MapReduce, Cloudera VM</p><a href="#" class="btn-action">อ่านเอกสารรายงานผลการทดสอบ</a><button class="btn btn-secondary-custom" data-bs-dismiss="modal">ปิดหน้าต่าง</button></div>
+    </div></div></div></div></div>
+
+    <div class="modal fade" id="modal19" tabindex="-1" aria-hidden="true"><div class="modal-dialog modal-xl modal-dialog-centered"><div class="modal-content"><div class="modal-body"><div class="row g-0">
+        <div class="col-lg-6 modal-img-col"><div id="c19" class="carousel slide w-100" data-bs-ride="carousel"><div class="carousel-inner"><div class="carousel-item active"><img src="assets/pj19.png"></div><div class="carousel-item"><img src="assets/pj19_alt.png"></div></div><button class="carousel-control-prev" data-bs-target="#c19" data-bs-slide="prev"><span class="carousel-control-prev-icon"></span></button><button class="carousel-control-next" data-bs-target="#c19" data-bs-slide="next"><span class="carousel-control-next-icon"></span></button></div></div>
+        <div class="col-lg-6 modal-details-col"><span class="badge bg-dark">IoT & Systems</span><h2 class="fw-bolder">Smart Dam Monitoring</h2><p class="text-muted">พัฒนาระบบ IoT เพื่อวัดระดับน้ำและแจ้งเตือนสถานะ พร้อมความสามารถในการควบคุมมอเตอร์ประตูน้ำจากระยะไกลเพื่อการบริหารจัดการน้ำ</p><p class="small"><strong>Tools:</strong> Arduino, Sensors, Blynk</p><a href="#" class="btn-action">อ่านเอกสารรายงานการดำเนินงาน</a><button class="btn btn-secondary-custom" data-bs-dismiss="modal">ปิดหน้าต่าง</button></div>
+    </div></div></div></div></div>
+
+    <div class="modal fade" id="modal20" tabindex="-1" aria-hidden="true"><div class="modal-dialog modal-xl modal-dialog-centered"><div class="modal-content"><div class="modal-body"><div class="row g-0">
+        <div class="col-lg-6 modal-img-col"><div id="c20" class="carousel slide w-100" data-bs-ride="carousel"><div class="carousel-inner"><div class="carousel-item active"><img src="assets/pj20.png"></div><div class="carousel-item"><img src="assets/pj20_alt.png"></div></div><button class="carousel-control-prev" data-bs-target="#c20" data-bs-slide="prev"><span class="carousel-control-prev-icon"></span></button><button class="carousel-control-next" data-bs-target="#c20" data-bs-slide="next"><span class="carousel-control-next-icon"></span></button></div></div>
+        <div class="col-lg-6 modal-details-col"><span class="badge bg-dark">Data & Research</span><h2 class="fw-bolder">JOIN vs SubQuery Study</h2><p class="text-muted">ศึกษาและเปรียบเทียบประสิทธิภาพการประมวลผลคำสั่ง SQL ระหว่าง JOIN และ SubQuery บนระบบฐานข้อมูลแบบสัมพันธ์ (RDBMS) เพื่อหาแนวทางที่เหมาะสมที่สุด</p><p class="small"><strong>Databases:</strong> Oracle, MySQL, PostgreSQL, MS SQL</p><a href="#" class="btn-action">อ่านนำเสนอรายงานการดำเนินงาน</a><button class="btn btn-secondary-custom" data-bs-dismiss="modal">ปิดหน้าต่าง</button></div>
+    </div></div></div></div></div>
+
+    <footer class="bg-dark py-4 mt-auto">
+        <div class="container px-5 text-center text-white small">TOMOEXX &copy; 2026 | Portfolio Website</div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script>
+    <script>
+        $(window).on('load', function() {
+            var $grid = $('.project-grid').isotope({ itemSelector: '.grid-item', layoutMode: 'fitRows' });
+            $('.filter-button-group').on('click', 'button', function() {
+                var filterValue = $(this).attr('data-filter');
+                $grid.isotope({ filter: filterValue });
+                $('.filter-button-group button').removeClass('active');
+                $(this).addClass('active');
+            });
+        });
+    </script>
+</body>
 </html>
